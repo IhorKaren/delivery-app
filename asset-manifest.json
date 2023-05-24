@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/delivery-app/static/css/main.e6c13ad2.css",
+    "main.js": "/delivery-app/static/js/main.1db6f6f4.js",
+    "static/media/default-image.webp": "/delivery-app/static/media/default-image.1a0b38a162899fecfc21.webp",
+    "index.html": "/delivery-app/index.html",
+    "main.e6c13ad2.css.map": "/delivery-app/static/css/main.e6c13ad2.css.map",
+    "main.1db6f6f4.js.map": "/delivery-app/static/js/main.1db6f6f4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1db6f6f4.js"
+  ]
+}
