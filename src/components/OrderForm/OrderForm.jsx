@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -25,15 +25,21 @@ const schema = Yup.object().shape({
 
 const OrderForm = ({ formSubmit, initialAddress, children }) => {
   const cartList = useSelector(getCart);
+  const [addressValue, setAddressValue] = useState('');
 
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    setAddressValue(initialAddress || '');
+  }, [initialAddress]);
 
   const onSubmit = (data, e) => {
     formSubmit({
@@ -44,8 +50,17 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
       order: cartList,
     });
 
+    setAddressValue('');
     reset();
   };
+
+  const handleAddressChange = event => {
+    setAddressValue(event.target.value);
+  };
+
+  useEffect(() => {
+    setValue('address', addressValue);
+  }, [addressValue, setValue]);
 
   return (
     <>
@@ -77,6 +92,7 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
             <StyledField
               type="text"
               defaultValue={initialAddress}
+              onChange={handleAddressChange}
               {...register('address')}
             />
             {errors.address && <Error>{errors.address?.message}</Error>}
