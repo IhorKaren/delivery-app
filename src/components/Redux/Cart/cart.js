@@ -35,6 +35,6 @@ export const cartSlice = createSlice({
 
 export const { addItem, changeQuantity, removeItem } = cartSlice.actions;
 
-export const getCart = state => state.cart.array;
-
 export const cartReducer = persistReducer(persistConfig, cartSlice.reducer);
+
+export const getCart = state => state.cart.array;

@@ -72,7 +72,7 @@ const Home = () => {
     <Section>
       {loading && <Loader />}
       <ShopsList shops={shops} />
-      <Menu burgers={burgers} onClick={addToCart} />
+      <Menu array={burgers} onClick={addToCart} />
       <ToastContainer autoClose={1500} />
     </Section>
   );
