@@ -24,8 +24,9 @@ const schema = Yup.object().shape({
 });
 
 const OrderForm = ({ formSubmit, initialAddress, children }) => {
-  const cartList = useSelector(getCart);
   const [addressValue, setAddressValue] = useState('');
+
+  const cartList = useSelector(getCart);
 
   const {
     register,
@@ -40,6 +41,10 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
   useEffect(() => {
     setAddressValue(initialAddress || '');
   }, [initialAddress]);
+
+  useEffect(() => {
+    setValue('address', addressValue);
+  }, [addressValue, setValue]);
 
   const onSubmit = (data, e) => {
     formSubmit({
@@ -57,10 +62,6 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
   const handleAddressChange = event => {
     setAddressValue(event.target.value);
   };
-
-  useEffect(() => {
-    setValue('address', addressValue);
-  }, [addressValue, setValue]);
 
   return (
     <>
