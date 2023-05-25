@@ -1,17 +1,19 @@
-import { StyledLink, Title, Thumb, List } from './ShopsList.styled';
+import { StyledLink, Item, Title, Thumb, List } from './ShopsList.styled';
 
-const ShopsList = ({ shops }) => {
+const ShopsList = ({ shops, onClick }) => {
   return (
     <Thumb>
       <Title>Shops</Title>
       <List>
         {shops.map(shop => {
           return (
-            <li to={`/shops/${shop.name}`} key={shop._id}>
+            <Item to={`/shops/${shop.name}`} key={shop._id}>
               <p>
-                <StyledLink>{shop.name}</StyledLink>
+                <StyledLink onClick={() => onClick(shop.name)}>
+                  {shop.name}
+                </StyledLink>
               </p>
-            </li>
+            </Item>
           );
         })}
       </List>

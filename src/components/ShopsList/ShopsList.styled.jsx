@@ -3,11 +3,15 @@ import styled from 'styled-components';
 
 const Thumb = styled.div`
   display: flex;
+  width: 200px;
+  height: 100%;
   flex-direction: column;
   flex-shrink: 0;
-  align-items: flex-end;
-  padding-top: 20px;
-  padding-left: 50px;
+  align-items: center;
+  margin-top: 30px;
+  padding-top: 10px;
+  border: solid black 2px;
+  border-radius: 10px;
 `;
 
 const Title = styled.h1`
@@ -18,6 +22,10 @@ const List = styled.ul`
   display: flex;
   flex-direction: column;
   list-style: none;
+  padding: 0;
+`;
+
+const Item = styled.li`
   padding: 0;
 `;
 
@@ -33,4 +41,4 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export { StyledLink, Title, Thumb, List };
+export { StyledLink, Item, Title, Thumb, List };

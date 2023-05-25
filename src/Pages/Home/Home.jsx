@@ -5,15 +5,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { addItem, getCart } from 'components/Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
+import GoBack from 'components/GoBack/GoBack';
 import ShopsList from 'components/ShopsList/ShopsList';
 import Menu from 'components/Menu/Menu';
 import Loader from 'components/Loader/Loader';
-import { Section } from './Home.styled';
+import { Section, Thumb } from './Home.styled';
 
 const Home = () => {
   const [burgers, setBurgers] = useState([]);
   const [shops, setShops] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [btnActive, setBtnActive] = useState(false);
 
   const cartList = useSelector(getCart);
 
@@ -52,9 +54,25 @@ const Home = () => {
       getShopsList();
     } catch (error) {
       console.log(error);
-    } finally {
     }
   }, []);
+
+  const selectedShop = name => {
+    setShops(prevState => prevState.filter(el => el.name === name));
+    setBtnActive(true);
+  };
+
+  const goBackBtnHandler = async () => {
+    try {
+      const response = await getShops();
+      if (response) {
+        setShops([...response]);
+        setBtnActive(false);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const addToCart = item => {
     const checkItem = cartList.find(el => el._id === item._id);
@@ -71,7 +89,10 @@ const Home = () => {
   return (
     <Section>
       {loading && <Loader />}
-      <ShopsList shops={shops} />
+      <Thumb>
+        {btnActive && <GoBack onClick={goBackBtnHandler} />}
+        <ShopsList shops={shops} onClick={selectedShop} />
+      </Thumb>
       <Menu array={burgers} onClick={addToCart} />
       <ToastContainer autoClose={1500} />
     </Section>

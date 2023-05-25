@@ -5,4 +5,10 @@ const Section = styled.section`
   padding-top: 60px;
 `;
 
-export { Section };
+const Thumb = styled.div`
+  display: flex;
+  position:relative;
+  flex-direction: column;
+`;
+
+export { Section, Thumb };
