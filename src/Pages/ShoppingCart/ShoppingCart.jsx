@@ -23,7 +23,7 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: 'AIzaSyAZv5czqJS_HE97JG_DlvnmPj5BdMU_8S8',
   });
 
   const formSubmit = async data => {
@@ -57,7 +57,7 @@ const ShoppingCart = () => {
   };
 
   const handleMarkerAdd = event => {
-    Geocode.setApiKey(process.env.GOOGLE_MAPS_API_KEY);
+    Geocode.setApiKey('AIzaSyAZv5czqJS_HE97JG_DlvnmPj5BdMU_8S8');
 
     const { lat, lng } = event.latLng;
     Geocode.fromLatLng(lat(), lng())
