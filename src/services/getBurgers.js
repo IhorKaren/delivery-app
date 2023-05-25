@@ -6,9 +6,7 @@ const getBurgers = async () => {
       'https://burgerbackend.herokuapp.com/burgers'
     );
     return response.data;
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 };
 
 export default getBurgers;

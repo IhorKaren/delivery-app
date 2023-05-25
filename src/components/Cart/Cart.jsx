@@ -1,7 +1,7 @@
 import { Thumb, Burgerlist } from './Cart.styled';
 import defaultImage from '../NotFound/default-image.webp';
 
-const Cart = ({ array, onChange }) => {
+const Cart = ({ array, onChange, onClick }) => {
   return (
     <Thumb>
       <Burgerlist>
@@ -16,6 +16,9 @@ const Cart = ({ array, onChange }) => {
                 defaultValue="1"
                 onChange={e => onChange(e, item._id)}
               />
+              <button type="button" onClick={() => onClick(item._id)}>
+                Remove
+              </button>
             </li>
           );
         })}

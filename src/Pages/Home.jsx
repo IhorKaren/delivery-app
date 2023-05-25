@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { addItem, getCart } from 'components/Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
 import ShopsList from 'components/ShopsList/ShopsList';
 import Menu from 'components/Menu/Menu';
-import { addItem, getCart } from 'components/Redux/Cart/cart';
+import Loader from 'components/Loader/Loader';
 import { Section } from './Pages.styled';
 
 const Home = () => {
   const [burgers, setBurgers] = useState([]);
   const [shops, setShops] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const cartList = useSelector(getCart);
 
@@ -17,6 +21,8 @@ const Home = () => {
 
   useEffect(() => {
     try {
+      setLoading(true);
+
       async function getBurgerMenu() {
         const response = await getBurgers();
 
@@ -28,6 +34,8 @@ const Home = () => {
       getBurgerMenu();
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -44,6 +52,7 @@ const Home = () => {
       getShopsList();
     } catch (error) {
       console.log(error);
+    } finally {
     }
   }, []);
 
@@ -51,16 +60,20 @@ const Home = () => {
     const checkItem = cartList.find(el => el._id === item._id);
 
     if (checkItem) {
+      toast.error(`You have already added this item to your cart`);
       return;
     }
 
     dispatch(addItem({ ...item, quantity: 1 }));
+    toast.success(`Your item has been added to your cart`);
   };
 
   return (
     <Section>
+      {loading && <Loader />}
       <ShopsList shops={shops} />
       <Menu burgers={burgers} onClick={addToCart} />
+      <ToastContainer autoClose={1500} />
     </Section>
   );
 };

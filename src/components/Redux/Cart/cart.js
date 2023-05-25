@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
       state.array.push(action.payload);
     },
     removeItem: (state, action) => {
-      const index = state.array.findIndex(item => item.id === action.payload);
+      const index = state.array.findIndex(item => item._id === action.payload);
 
       state.array.splice(index, 1);
     },
@@ -26,7 +26,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { addItem, changeQuantity } = cartSlice.actions;
+export const { addItem, changeQuantity, removeItem } = cartSlice.actions;
 
 export const getCart = state => state.cart.array;
 
