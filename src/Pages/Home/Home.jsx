@@ -8,7 +8,7 @@ import getShops from 'services/getShops';
 import ShopsList from 'components/ShopsList/ShopsList';
 import Menu from 'components/Menu/Menu';
 import Loader from 'components/Loader/Loader';
-import { Section } from './Pages.styled';
+import { Section } from './Home.styled';
 
 const Home = () => {
   const [burgers, setBurgers] = useState([]);

@@ -12,13 +12,12 @@ const appear = keyframes`
 `;
 
 const StyledForm = styled.form`
-  padding-top: 50px;
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  margin: 0 auto;
+  margin-top: 10px;
 `;
 
 const StyledLabel = styled.label`
@@ -27,8 +26,8 @@ const StyledLabel = styled.label`
 `;
 
 const StyledField = styled.input`
-  display: block;
-  width: 100%;
+  display: flex;
+  width: 230px;
   padding: 10px;
   border-radius: 10px;
   border: 1px solid #ccc;

@@ -1,5 +1,8 @@
-import React from 'react';
+import { useState } from 'react';
+import { useLoadScript } from '@react-google-maps/api';
 import { ToastContainer, toast } from 'react-toastify';
+import Map from 'components/Map/Map';
+import Geocode from 'react-geocode';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   getCart,
@@ -7,15 +10,21 @@ import {
   removeItem,
 } from 'components/Redux/Cart/cart';
 import sendOrder from 'services/sendOrder';
+import { Section } from './Shopping.card.styled';
 import OrderForm from 'components/OrderForm/OrderForm';
 import Cart from 'components/Cart/Cart';
 import TotalPrice from 'components/TotalPrice/TotalPrice';
-import { Section } from './Pages.styled';
+import Loader from 'components/Loader/Loader';
 
 const ShoppingCart = () => {
-  const cartList = useSelector(getCart);
+  const [address, setAddress] = useState('');
 
+  const cartList = useSelector(getCart);
   const dispatch = useDispatch();
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: 'AIzaSyAZv5czqJS_HE97JG_DlvnmPj5BdMU_8S8',
+  });
 
   const formSubmit = async data => {
     try {
@@ -47,15 +56,33 @@ const ShoppingCart = () => {
     toast.info('Item removed from cart');
   };
 
+  const handleMarkerAdd = event => {
+    Geocode.setApiKey('AIzaSyAZv5czqJS_HE97JG_DlvnmPj5BdMU_8S8');
+
+    const { lat, lng } = event.latLng;
+    Geocode.fromLatLng(lat(), lng())
+      .then(response => {
+        const address = response.results[0].formatted_address;
+        setAddress(address);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   return (
     <Section>
-      <OrderForm formSubmit={formSubmit}>
-        <TotalPrice />
-      </OrderForm>
+      <div>
+        {!isLoaded ? <Loader /> : <Map onClick={handleMarkerAdd} />}
+        <OrderForm formSubmit={formSubmit} initialAddress={address}>
+          <TotalPrice />
+        </OrderForm>
+      </div>
       <Cart
         array={cartList}
         onChange={changeItemQuantity}
         onClick={removeBtnHandler}
+        address={address}
       />
       <ToastContainer autoClose={2000} />
     </Section>

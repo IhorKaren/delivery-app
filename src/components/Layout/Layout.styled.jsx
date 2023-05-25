@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-
 const Header = styled.header`
   display: flex;
   position: fixed;
@@ -10,6 +9,7 @@ const Header = styled.header`
   width: 100%;
   height: 40px;
   padding: 20px;
+  z-index: 9999;
   background: linear-gradient(
     to right,
     #f8f6f5,

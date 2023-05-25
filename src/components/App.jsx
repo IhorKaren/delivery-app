@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import { Container } from './Container/Container.styled';
 import Layout from './Layout/Layout';
 
-const Home = lazy(() => import('../Pages/Home'));
-const ShoppingCart = lazy(() => import('../Pages/ShoppingCart'));
+const Home = lazy(() => import('../Pages/Home/Home'));
+const ShoppingCart = lazy(() => import('../Pages/ShoppingCart/ShoppingCart'));
 
 export const App = () => {
   return (

@@ -1,5 +1,4 @@
 import React from 'react';
-// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -24,7 +23,7 @@ const schema = Yup.object().shape({
   address: Yup.string().required('Address is required!'),
 });
 
-const OrderForm = ({ formSubmit, children }) => {
+const OrderForm = ({ formSubmit, initialAddress, children }) => {
   const cartList = useSelector(getCart);
 
   const {
@@ -75,7 +74,11 @@ const OrderForm = ({ formSubmit, children }) => {
         <div>
           <StyledLabel htmlFor="address">
             Address:
-            <StyledField type="text" {...register('address')} />
+            <StyledField
+              type="text"
+              defaultValue={initialAddress}
+              {...register('address')}
+            />
             {errors.address && <Error>{errors.address?.message}</Error>}
           </StyledLabel>
         </div>
@@ -83,7 +86,6 @@ const OrderForm = ({ formSubmit, children }) => {
         <StyledButton type="submit">Submit</StyledButton>
         {children}
       </StyledForm>
-      {/* <ToastContainer autoClose={0} /> */}
     </>
   );
 };
