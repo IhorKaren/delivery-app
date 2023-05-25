@@ -1,6 +1,5 @@
 import React from 'react';
 import 'react-toastify/dist/ReactToastify.css';
-import ReCAPTCHA from 'react-google-recaptcha';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useForm } from 'react-hook-form';
@@ -83,7 +82,6 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
             {errors.address && <Error>{errors.address?.message}</Error>}
           </StyledLabel>
         </div>
-        <ReCAPTCHA sitekey="6LeSejwmAAAAAIeKJImdnYf4_0oG-ct8gDYfwySV" />
         <StyledButton type="submit">Submit</StyledButton>
         {children}
       </StyledForm>
