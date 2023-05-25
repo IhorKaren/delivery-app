@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -37,13 +37,6 @@ const OrderForm = ({ formSubmit, children }) => {
   });
 
   const onSubmit = (data, e) => {
-    if (cartList.length === 0) {
-      toast.error(
-        `To submit an order, you must add the item to your shopping cart.`
-      );
-      return;
-    }
-
     formSubmit({
       name: data.name,
       number: data.phone,
@@ -51,8 +44,8 @@ const OrderForm = ({ formSubmit, children }) => {
       address: data.address,
       order: cartList,
     });
+
     reset();
-    toast.success(`Thank you, your order has been processed.`);
   };
 
   return (
@@ -90,7 +83,7 @@ const OrderForm = ({ formSubmit, children }) => {
         <StyledButton type="submit">Submit</StyledButton>
         {children}
       </StyledForm>
-      <ToastContainer autoClose={3000} />
+      {/* <ToastContainer autoClose={0} /> */}
     </>
   );
 };

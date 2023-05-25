@@ -19,7 +19,16 @@ const ShoppingCart = () => {
 
   const formSubmit = async data => {
     try {
+      if (data.order.length === 0) {
+        toast.error(
+          `To submit an order, you must add the item to your shopping cart.`
+        );
+        return;
+      }
+
       await sendOrder(data);
+
+      toast.success(`Thank you, your order has been processed.`);
     } catch (error) {
       console.log(error.message);
     }
@@ -48,7 +57,7 @@ const ShoppingCart = () => {
         onChange={changeItemQuantity}
         onClick={removeBtnHandler}
       />
-      <ToastContainer autoClose={1500} />
+      <ToastContainer autoClose={2000} />
     </Section>
   );
 };
