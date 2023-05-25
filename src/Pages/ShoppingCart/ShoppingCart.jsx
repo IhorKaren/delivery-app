@@ -73,7 +73,11 @@ const ShoppingCart = () => {
   return (
     <Section>
       <div>
-        {!isLoaded ? <Loader /> : <Map onClick={handleMarkerAdd} />}
+        {!isLoaded ? (
+          <Loader />
+        ) : (
+          <Map onClick={handleMarkerAdd} address={address} />
+        )}
         <OrderForm formSubmit={formSubmit} initialAddress={address}>
           <TotalPrice />
         </OrderForm>
