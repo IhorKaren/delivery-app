@@ -12,29 +12,31 @@ const Layout = () => {
   return (
     <>
       <AppBar
-        position="static"
+        position="fixed"
         sx={{ color: 'black', backgroundColor: '#FFFFFF' }}
       >
-        <Toolbar
-          sx={{
-            display: 'flex',
-            alignItems: 'baseline',
-            paddingTop: '15px',
-            gap: '20px',
-          }}
-        >
-          <Typography variant="h6" component="div">
-            Delivery App
-          </Typography>
-          <div>
-            <Button component={NavLink} to="/" sx={{ color: 'black' }}>
-              Shop
-            </Button>
-            <Button component={NavLink} to="/order" sx={{ color: 'black' }}>
-              Shopping cart
-            </Button>
-          </div>
-        </Toolbar>
+        <Container maxWidth="xl">
+          <Toolbar
+            sx={{
+              display: 'flex',
+              alignItems: 'baseline',
+              paddingTop: '15px',
+              gap: '20px',
+            }}
+          >
+            <Typography variant="h6" component="div">
+              Delivery App
+            </Typography>
+            <div>
+              <Button component={NavLink} to="/" sx={{ color: 'black' }}>
+                Shop
+              </Button>
+              <Button component={NavLink} to="/order" sx={{ color: 'black' }}>
+                Shopping cart
+              </Button>
+            </div>
+          </Toolbar>
+        </Container>
       </AppBar>
       <Container maxWidth="xl">
         <Box sx={{ my: 4 }}>

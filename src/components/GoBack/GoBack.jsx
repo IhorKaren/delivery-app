@@ -3,7 +3,7 @@ import { GoBackBtn } from './GoBack.styled';
 const GoBack = ({ onClick }) => {
   return (
     <div>
-      <GoBackBtn type="button" onClick={onClick}>
+      <GoBackBtn variant="outlined" onClick={onClick}>
         Go back
       </GoBackBtn>
     </div>

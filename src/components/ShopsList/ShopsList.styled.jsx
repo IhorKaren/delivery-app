@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const Title = styled.h1`
   text-align: center;
@@ -28,8 +37,10 @@ const StyledLink = styled(Link)`
   transition: background-color 200ms linear;
   white-space: nowrap;
 
+  animation: ${fadeIn} 0.5s ease-in;
+
   :hover {
-    background-color: #bdbdbd;
+    background-color: rgba(33, 150, 243, 0.5);
   }
 `;
 

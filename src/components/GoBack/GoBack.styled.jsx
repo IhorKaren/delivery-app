@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import Button from '@mui/material/Button';
 
-const GoBackBtn = styled.button`
+const GoBackBtn = styled(Button)`
   position: absolute;
   left: 50%;
   top: 120px;
@@ -11,16 +12,13 @@ const GoBackBtn = styled.button`
   text-decoration: none;
   white-space: nowrap;
   font-size: 16px;
-  background-color: #000000;
-  color: white;
 
-  border: none;
+  color: black;
+  border: 1px solid black;
+
   transition: color 200ms linear, background-color 200ms linear;
 
-  &:hover {
-    color: black;
-    background-color: #bdbdbd;
-  }
+
 `;
 
 export { GoBackBtn };
