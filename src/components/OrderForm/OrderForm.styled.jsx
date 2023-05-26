@@ -1,59 +1,34 @@
-import styled, { keyframes } from 'styled-components';
-
-const appear = keyframes`
-  from {
-    opacity: 0;
-    transform: translateX(-25px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
+import styled from 'styled-components';
+import { TextField } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const StyledForm = styled.form`
-  width: 300px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 24px;
-  margin-top: 10px;
-`;
-
-const StyledLabel = styled.label`
-  display: block;
-  margin-right: auto;
-`;
-
-const StyledField = styled.input`
-  display: flex;
-  width: 230px;
+  gap: 70px;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-
-  &:focus {
-    outline: none;
-    border-color: #00aeef;
-  }
 `;
 
-const Error = styled.div`
+const Thumb = styled.div`
+  position: relative;
+`;
+
+const StyledField = styled(TextField)`
   position: absolute;
-  color: red;
-  animation: ${appear} 500ms ease-in-out;
+  top: 0;
+  left: 0;
+  width: 100%;
 `;
 
-const StyledButton = styled.button`
-  background-color: royalblue;
-  color: white;
+const StyledButton = styled(Button)`
+  margin-left: auto;
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 16px;
-  border: none;
-  &:hover {
-    background-color: #2ba1e0;
-  }
+
+  color: black;
+  border: 1px solid black;
 `;
 
-export { StyledLabel, StyledField, Error, StyledButton, StyledForm };
+export { Thumb, StyledField, StyledButton, StyledForm };

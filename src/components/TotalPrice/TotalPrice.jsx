@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { getCart } from 'components/Redux/Cart/cart';
+import { StyledTotalPrice } from './TotalPrice.styled';
 
 const TotalPrice = () => {
   const cartList = useSelector(getCart);
@@ -10,7 +11,7 @@ const TotalPrice = () => {
     }, 0);
   };
 
-  return <div>Total price: {getTotalPrice()}</div>;
+  return <StyledTotalPrice>Total price: {getTotalPrice()}</StyledTotalPrice>;
 };
 
 export default TotalPrice;

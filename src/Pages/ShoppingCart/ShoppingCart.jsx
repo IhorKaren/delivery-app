@@ -10,11 +10,10 @@ import {
   removeItem,
 } from 'components/Redux/Cart/cart';
 import sendOrder from 'services/sendOrder';
-import { Section } from './Shopping.card.styled';
 import OrderForm from 'components/OrderForm/OrderForm';
 import Cart from 'components/Cart/Cart';
-import TotalPrice from 'components/TotalPrice/TotalPrice';
 import Loader from 'components/Loader/Loader';
+import { Section, Thumb } from './Shopping.card.styled';
 
 const ShoppingCart = () => {
   const [address, setAddress] = useState('');
@@ -72,16 +71,14 @@ const ShoppingCart = () => {
 
   return (
     <Section>
-      <div>
+      <Thumb>
         {!isLoaded ? (
           <Loader />
         ) : (
           <Map onClick={handleMarkerAdd} address={address} />
         )}
-        <OrderForm formSubmit={formSubmit} initialAddress={address}>
-          <TotalPrice />
-        </OrderForm>
-      </div>
+        <OrderForm formSubmit={formSubmit} initialAddress={address}></OrderForm>
+      </Thumb>
       <Cart
         array={cartList}
         onChange={changeItemQuantity}

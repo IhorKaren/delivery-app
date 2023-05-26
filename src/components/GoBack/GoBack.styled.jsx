@@ -15,10 +15,6 @@ const GoBackBtn = styled(Button)`
 
   color: black;
   border: 1px solid black;
-
-  transition: color 200ms linear, background-color 200ms linear;
-
-
 `;
 
 export { GoBackBtn };

@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useForm } from 'react-hook-form';
+import { useForm, useController } from 'react-hook-form';
 import { useSelector } from 'react-redux';
 import { getCart } from 'components/Redux/Cart/cart';
+import TotalPrice from 'components/TotalPrice/TotalPrice';
 import {
-  StyledLabel,
   StyledField,
-  Error,
+  Thumb,
   StyledButton,
   StyledForm,
 } from './OrderForm.styled';
+import { useFormControl } from '@mui/material';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Name is required!'),
@@ -34,8 +35,17 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
     reset,
     formState: { errors },
     setValue,
+    control,
   } = useForm({
     resolver: yupResolver(schema),
+  });
+
+  const {
+    field: { ref, ...inputProps },
+  } = useController({
+    name: 'address',
+    control,
+    defaultValue: initialAddress || '',
   });
 
   useEffect(() => {
@@ -59,49 +69,57 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
     reset();
   };
 
-  const handleAddressChange = event => {
-    setAddressValue(event.target.value);
-  };
-
   return (
     <>
       <StyledForm onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <StyledLabel htmlFor="name">
-            Name:
-            <StyledField type="text" {...register('name')} />
-            {errors.name && <Error>{errors.name?.message}</Error>}
-          </StyledLabel>
-        </div>
-        <div>
-          <StyledLabel htmlFor="email">
-            Email:
-            <StyledField type="email" {...register('email')} />
-            {errors.email && <Error>{errors.email?.message}</Error>}
-          </StyledLabel>
-        </div>
-        <div>
-          <StyledLabel htmlFor="phone">
-            Phone:
-            <StyledField type="tel" {...register('phone')} />
-            {errors.phone && <Error>{errors.phone?.message}</Error>}
-          </StyledLabel>
-        </div>
-        <div>
-          <StyledLabel htmlFor="address">
-            Address:
-            <StyledField
-              type="text"
-              defaultValue={initialAddress}
-              onChange={handleAddressChange}
-              {...register('address')}
-            />
-            {errors.address && <Error>{errors.address?.message}</Error>}
-          </StyledLabel>
-        </div>
-        <StyledButton type="submit">Submit</StyledButton>
+        <Thumb>
+          <StyledField
+            variant="standard"
+            label="Name"
+            type="text"
+            {...register('name')}
+            error={Boolean(errors.name)}
+            helperText={errors.name?.message}
+          />
+        </Thumb>
+        <Thumb>
+          <StyledField
+            variant="standard"
+            label="Email"
+            type="email"
+            {...register('email')}
+            error={Boolean(errors.email)}
+            helperText={errors.email?.message}
+          />
+        </Thumb>
+        <Thumb>
+          <StyledField
+            variant="standard"
+            label="Phone"
+            type="tel"
+            {...register('phone')}
+            error={Boolean(errors.phone)}
+            helperText={errors.phone?.message}
+          />
+        </Thumb>
+        <Thumb>
+          <StyledField
+            variant="standard"
+            label="Address"
+            type="text"
+            {...inputProps}
+            inputRef={ref}
+            {...useFormControl()}
+            error={Boolean(errors.address)}
+            helperText={errors.address?.message}
+          />
+        </Thumb>
+        <StyledButton variant="outlined" type="submit">
+          Submit
+        </StyledButton>
         {children}
       </StyledForm>
+      <TotalPrice />
     </>
   );
 };

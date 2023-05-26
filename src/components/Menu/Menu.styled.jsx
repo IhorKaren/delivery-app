@@ -18,7 +18,7 @@ const Thumb = styled.div`
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: #c9c9c9;
+    background-color: #4e4e4e;
     border-radius: 25px;
   }
 `;

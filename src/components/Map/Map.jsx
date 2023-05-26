@@ -7,8 +7,7 @@ const Map = ({ onClick }) => {
   const mapContainerStyle = {
     width: '500px',
     height: '400px',
-    marginTop: '35px',
-    marginRight: '30px',
+    borderRadius: '12px 12px 0px 0px',
   };
 
   const center = {
