@@ -45,14 +45,14 @@ const Error = styled.div`
 `;
 
 const StyledButton = styled.button`
-  background-color: #00aeef;
+  background-color: royalblue;
   color: white;
   padding: 8px 12px;
   border-radius: 10px;
   font-size: 16px;
   border: none;
   &:hover {
-    background-color: #0077b5;
+    background-color: #2ba1e0;
   }
 `;
 
