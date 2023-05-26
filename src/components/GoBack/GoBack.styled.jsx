@@ -3,19 +3,23 @@ import styled from 'styled-components';
 const GoBackBtn = styled.button`
   position: absolute;
   left: 50%;
-  top: 200px;
+  top: 120px;
   transform: translateX(-50%);
-  background-color: royalblue;
-  color: white;
   padding: 8px 12px;
   border-radius: 10px;
-  font-size: 16px;
+
   text-decoration: none;
+  white-space: nowrap;
+  font-size: 16px;
+  background-color: #000000;
+  color: white;
+
   border: none;
-  transition: background-color 200ms linear;
+  transition: color 200ms linear, background-color 200ms linear;
 
   &:hover {
-    background-color: #2ba1e0;
+    color: black;
+    background-color: #bdbdbd;
   }
 `;
 

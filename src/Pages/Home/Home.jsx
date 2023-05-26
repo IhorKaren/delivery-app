@@ -90,8 +90,8 @@ const Home = () => {
     <Section>
       {loading && <Loader />}
       <Thumb>
-        {btnActive && <GoBack onClick={goBackBtnHandler} />}
         <ShopsList shops={shops} onClick={selectedShop} />
+        {btnActive && <GoBack onClick={goBackBtnHandler} />}
       </Thumb>
       <Menu array={burgers} onClick={addToCart} />
       <ToastContainer autoClose={1500} />
