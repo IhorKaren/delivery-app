@@ -11,7 +11,10 @@ import { Suspense } from 'react';
 const Layout = () => {
   return (
     <>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        sx={{ color: 'black', backgroundColor: '#FFFFFF' }}
+      >
         <Toolbar
           sx={{
             display: 'flex',
@@ -24,10 +27,10 @@ const Layout = () => {
             Delivery App
           </Typography>
           <div>
-            <Button component={NavLink} to="/" color="inherit">
+            <Button component={NavLink} to="/" sx={{ color: 'black' }}>
               Shop
             </Button>
-            <Button component={NavLink} to="/order" color="inherit">
+            <Button component={NavLink} to="/order" sx={{ color: 'black' }}>
               Shopping cart
             </Button>
           </div>
