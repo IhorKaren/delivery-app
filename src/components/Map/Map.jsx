@@ -29,7 +29,7 @@ const Map = ({ onClick }) => {
   return (
     <GoogleMap
       zoom={13}
-      center={center}
+      center={markerPosition || center}
       mapContainerStyle={mapContainerStyle}
       onClick={handleMapClick}
     >
