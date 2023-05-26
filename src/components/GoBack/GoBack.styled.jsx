@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const GoBackBtn = styled.button`
   position: absolute;
   left: 50%;
-  top: 30%;
+  top: 200px;
   transform: translateX(-50%);
   background-color: royalblue;
   color: white;
