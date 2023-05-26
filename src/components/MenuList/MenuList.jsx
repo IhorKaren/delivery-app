@@ -1,5 +1,4 @@
 import { Card } from './MenuList.styled';
-import defaultImage from '../NotFound/default-image.webp';
 
 const MenuList = ({ array, onClick }) => {
   return (
@@ -7,7 +6,11 @@ const MenuList = ({ array, onClick }) => {
       {array.map(burger => {
         return (
           <Card key={burger._id}>
-            <img src={defaultImage} width="300" alt="" />
+            <img
+              src={`https://s7d1.scene7.com/is/image/mcdonalds/${burger.img_path}`}
+              width="240"
+              alt={burger.name}
+            />
             <h3>{burger.name}</h3>
             <p>Price: {burger.price}</p>
             <button onClick={() => onClick(burger)}>Add to cart</button>
