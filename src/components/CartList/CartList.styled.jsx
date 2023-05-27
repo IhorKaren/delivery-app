@@ -15,22 +15,24 @@ const fadeIn = keyframes`
 const StyledCard = styled(Card)`
   position: relative;
   display: flex;
-  height: 200px;
+  height: 240px;
   padding: 0;
+
   flex-basis: calc((100% - 20px) / 2);
-  
+
   animation: ${fadeIn} 0.5s ease-in;
 `;
 
 const CartMediaStyled = styled(CardMedia)`
-  width: 200px;
+  width: 220px;
+  padding-bottom: 40px;
 `;
 
 const StyledMUIBtn = styled(Button)`
   position: absolute;
   bottom: 10px;
   right: 10px;
-  
+
   color: black;
   border: 1px solid black;
 `;

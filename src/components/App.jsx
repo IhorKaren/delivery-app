@@ -1,6 +1,5 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import Layout from './Layout/Layout';
 import SimpleContainer from './Container/Container';
 

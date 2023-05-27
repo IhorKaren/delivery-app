@@ -12,13 +12,18 @@ const fadeIn = keyframes`
 `;
 
 const NewCard = styled(Card)`
+  position: relative;
   padding: 0;
   flex-basis: calc((100% - 60px) / 4);
   animation: ${fadeIn} 0.5s ease-in;
 `;
 
 const StyledMUIBtn = styled(Button)`
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
   margin-left: auto;
+  
   color: black;
   border: 1px solid black;
 `;

@@ -21,7 +21,7 @@ const MenuList = ({ array, onClick, loading }) => {
                 src={`https://s7d1.scene7.com/is/image/mcdonalds/${burger.img_path}`}
                 alt={burger.name}
               />
-              <CardContent>
+              <CardContent sx={{ paddingBottom: '30px' }}>
                 <Typography gutterBottom variant="h5" component="h3">
                   {burger.name}
                 </Typography>
