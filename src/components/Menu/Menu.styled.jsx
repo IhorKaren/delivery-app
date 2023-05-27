@@ -8,7 +8,6 @@ const Thumb = styled.div`
   overflow: auto;
 
   margin-left: 15px;
-  padding-right: 15px;
 
   border: 2px solid black;
   border-radius: 10px;
@@ -27,6 +26,8 @@ const Burgerlist = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px;
+  margin: 0;
   list-style: none;
 `;
 
