@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import { Button } from '@mui/material';
 import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 const Layout = () => {
   return (
@@ -40,7 +41,7 @@ const Layout = () => {
       </AppBar>
       <Container maxWidth="xl">
         <Box sx={{ my: 4 }}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Outlet />
           </Suspense>
         </Box>
