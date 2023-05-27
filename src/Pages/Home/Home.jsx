@@ -8,7 +8,6 @@ import getShops from 'services/getShops';
 import GoBack from 'components/GoBack/GoBack';
 import ShopsList from 'components/ShopsList/ShopsList';
 import Menu from 'components/Menu/Menu';
-import Loader from 'components/Loader/Loader';
 import { Section, Thumb } from './Home.styled';
 
 const Home = () => {
@@ -22,39 +21,43 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    try {
-      setLoading(true);
+    async function getBurgerMenu() {
+      try {
+        setLoading(true);
 
-      async function getBurgerMenu() {
         const response = await getBurgers();
 
         if (response) {
           setBurgers([...response]);
         }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
-
-      getBurgerMenu();
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
     }
+
+    getBurgerMenu();
   }, []);
 
   useEffect(() => {
-    try {
-      async function getShopsList() {
+    async function getShopsList() {
+      try {
+        setLoading(true);
+
         const response = await getShops();
 
         if (response) {
           setShops([...response]);
         }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
       }
-
-      getShopsList();
-    } catch (error) {
-      console.log(error);
     }
+
+    getShopsList();
   }, []);
 
   const selectedShop = name => {
@@ -88,12 +91,11 @@ const Home = () => {
 
   return (
     <Section>
-      {loading && <Loader />}
       <Thumb>
         <ShopsList shops={shops} onClick={selectedShop} />
         {btnActive && <GoBack onClick={goBackBtnHandler} />}
       </Thumb>
-      <Menu array={burgers} onClick={addToCart} />
+      <Menu array={burgers} onClick={addToCart} loading={loading} />
       <ToastContainer autoClose={1500} />
     </Section>
   );
