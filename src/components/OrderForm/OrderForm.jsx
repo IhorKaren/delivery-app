@@ -118,8 +118,8 @@ const OrderForm = ({ formSubmit, initialAddress, children }) => {
           Submit
         </StyledButton>
         {children}
+        <TotalPrice />
       </StyledForm>
-      <TotalPrice />
     </>
   );
 };

@@ -5,7 +5,7 @@ const Map = ({ onClick }) => {
   const [markerPosition, setMarkerPosition] = useState(null);
 
   const mapContainerStyle = {
-    width: '500px',
+    width: '100%',
     height: '400px',
     borderRadius: '12px 12px 0px 0px',
   };

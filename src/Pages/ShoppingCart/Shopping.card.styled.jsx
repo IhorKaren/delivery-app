@@ -6,6 +6,7 @@ const Section = styled.section`
 
 const Thumb = styled.div`
   display: flex;
+  min-width: 500px;
   height: 100vh;
   position: relative;
   flex-direction: column;
