@@ -92,7 +92,7 @@ const Home = () => {
   return (
     <Section>
       <Thumb>
-        <ShopsList shops={shops} onClick={selectedShop} />
+        <ShopsList shops={shops} onClick={selectedShop} loading={loading} />
         {btnActive && <GoBack onClick={goBackBtnHandler} />}
       </Thumb>
       <Menu array={burgers} onClick={addToCart} loading={loading} />
