@@ -12,7 +12,6 @@ export default function SimpleContainer({ children }) {
           paddingTop: '64px',
           paddingBottom: '14px',
           backgroundColor: '#FFFFFF',
-          boxShadow: '0px 2px 4px rgba(0, 0, 0, 0.1)',
         }}
       >
         {children}

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Thumb = styled.div`
-  height: 100vh;
+  height: 800px;
   width: 100%;
   display: flex;
   flex-direction: column;
