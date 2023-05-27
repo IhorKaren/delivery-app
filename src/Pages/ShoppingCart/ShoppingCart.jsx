@@ -15,6 +15,8 @@ import Cart from 'components/Cart/Cart';
 import Loader from 'components/Loader/Loader';
 import { Section, Thumb } from './Shopping.card.styled';
 
+const KEY = 'AIzaSyAZv5czqJS_HE97JG_DlvnmPj5BdMU_8S8';
+
 const ShoppingCart = () => {
   const [address, setAddress] = useState('');
 
@@ -22,7 +24,7 @@ const ShoppingCart = () => {
   const dispatch = useDispatch();
 
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: KEY,
   });
 
   const formSubmit = async data => {
@@ -56,7 +58,7 @@ const ShoppingCart = () => {
   };
 
   const handleMarkerAdd = event => {
-    Geocode.setApiKey(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+    Geocode.setApiKey(KEY);
 
     const { lat, lng } = event.latLng;
     Geocode.fromLatLng(lat(), lng())
@@ -89,6 +91,5 @@ const ShoppingCart = () => {
     </Section>
   );
 };
-
 
 export default ShoppingCart;
