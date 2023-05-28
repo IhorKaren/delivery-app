@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/delivery-app/static/css/main.b236f875.css",
-    "main.js": "/delivery-app/static/js/main.3c643d2f.js",
-    "static/js/319.202d8b3f.chunk.js": "/delivery-app/static/js/319.202d8b3f.chunk.js",
+    "main.js": "/delivery-app/static/js/main.44358497.js",
+    "static/js/319.23207f4a.chunk.js": "/delivery-app/static/js/319.23207f4a.chunk.js",
     "static/js/610.85d59c3e.chunk.js": "/delivery-app/static/js/610.85d59c3e.chunk.js",
-    "static/css/494.c2549f08.chunk.css": "/delivery-app/static/css/494.c2549f08.chunk.css",
-    "static/js/494.32ac8d2e.chunk.js": "/delivery-app/static/js/494.32ac8d2e.chunk.js",
-    "static/js/241.6f930ad4.chunk.js": "/delivery-app/static/js/241.6f930ad4.chunk.js",
+    "static/css/972.ce802b29.chunk.css": "/delivery-app/static/css/972.ce802b29.chunk.css",
+    "static/js/972.4621584a.chunk.js": "/delivery-app/static/js/972.4621584a.chunk.js",
+    "static/js/738.62d6318f.chunk.js": "/delivery-app/static/js/738.62d6318f.chunk.js",
     "index.html": "/delivery-app/index.html",
     "main.b236f875.css.map": "/delivery-app/static/css/main.b236f875.css.map",
-    "main.3c643d2f.js.map": "/delivery-app/static/js/main.3c643d2f.js.map",
-    "319.202d8b3f.chunk.js.map": "/delivery-app/static/js/319.202d8b3f.chunk.js.map",
+    "main.44358497.js.map": "/delivery-app/static/js/main.44358497.js.map",
+    "319.23207f4a.chunk.js.map": "/delivery-app/static/js/319.23207f4a.chunk.js.map",
     "610.85d59c3e.chunk.js.map": "/delivery-app/static/js/610.85d59c3e.chunk.js.map",
-    "494.c2549f08.chunk.css.map": "/delivery-app/static/css/494.c2549f08.chunk.css.map",
-    "494.32ac8d2e.chunk.js.map": "/delivery-app/static/js/494.32ac8d2e.chunk.js.map",
-    "241.6f930ad4.chunk.js.map": "/delivery-app/static/js/241.6f930ad4.chunk.js.map"
+    "972.ce802b29.chunk.css.map": "/delivery-app/static/css/972.ce802b29.chunk.css.map",
+    "972.4621584a.chunk.js.map": "/delivery-app/static/js/972.4621584a.chunk.js.map",
+    "738.62d6318f.chunk.js.map": "/delivery-app/static/js/738.62d6318f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b236f875.css",
-    "static/js/main.3c643d2f.js"
+    "static/js/main.44358497.js"
   ]
 }
