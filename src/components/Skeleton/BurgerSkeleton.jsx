@@ -11,18 +11,18 @@ const BurgerSkeleton = () => {
     <>
       {baseArray.map((_, index) => (
         <NewCard key={index} component="li">
-          <Skeleton variant="rectangular" width={280} height={285} />{' '}
+          <Skeleton variant="rectangular" width={280} height={280} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h3">
-              <Skeleton variant="text" width={120} />{' '}
+              <Skeleton variant="text" width={120} />
             </Typography>
             <Typography component="p">
-              <Skeleton variant="text" width={80} />{' '}
+              <Skeleton variant="text" width={80} />
             </Typography>
           </CardContent>
           <CardActions>
             <StyledMUIBtn size="small" variant="outlined">
-              <Skeleton variant="text" width={100} />{' '}
+              <Skeleton variant="text" width={100} />
             </StyledMUIBtn>
           </CardActions>
         </NewCard>
