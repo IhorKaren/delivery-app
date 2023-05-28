@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Outlet, NavLink } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import AppBar from '@mui/material/AppBar';
 import { Button } from '@mui/material';
 import { Suspense } from 'react';
 import Loader from 'components/Loader/Loader';
@@ -25,14 +25,18 @@ const Layout = () => {
               gap: '20px',
             }}
           >
-            <Typography variant="h6" component="div">
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ fontWeight: 'bold' }}
+            >
               Delivery App
             </Typography>
             <div>
-              <Button component={NavLink} to="/" sx={{ color: 'black' }}>
+              <Button component={NavLink} to="/" sx={{ color: 'inherit' }}>
                 Shop
               </Button>
-              <Button component={NavLink} to="/order" sx={{ color: 'black' }}>
+              <Button component={NavLink} to="/order" sx={{ color: 'inherit' }}>
                 Shopping cart
               </Button>
             </div>
