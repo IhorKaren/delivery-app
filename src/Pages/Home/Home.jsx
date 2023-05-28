@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addItem, getCart } from 'components/Redux/Cart/cart';
+import { addItem, getCart, removeItem } from 'components/Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
 import GoBack from 'components/GoBack/GoBack';
@@ -77,22 +77,25 @@ const Home = () => {
     }
   };
 
-  const addItemToCart = item => {
+  const toggleCartItem = item => {
+    const activeShop = shops[0].name;
+
     if (shops.length > 1) {
       toast.info('Please select a shop');
       return;
     }
 
     const checkItem = cartList.some(
-      el => el._id === item._id && el.shop === shops[0].name
+      el => el._id === item._id && el.shop === activeShop
     );
 
     if (checkItem) {
-      toast.info('This item is already in the cart');
+      dispatch(removeItem({ id: item._id, shop: activeShop }));
+      toast.info('Item removed from your cart');
       return;
     }
 
-    dispatch(addItem({ ...item, quantity: 1, shop: shops[0].name }));
+    dispatch(addItem({ ...item, quantity: 1, shop: activeShop }));
     toast.success(`Your item has been added to your cart`);
   };
 
@@ -102,7 +105,12 @@ const Home = () => {
         <ShopsList shops={shops} onClick={selectedShop} loading={loading} />
         {btnActive && <GoBack onClick={goBackBtnHandler} />}
       </Thumb>
-      <Menu array={burgers} onClick={addItemToCart} loading={loading} />
+      <Menu
+        array={burgers}
+        onClick={toggleCartItem}
+        loading={loading}
+        activeShop={shops}
+      />
       <ToastContainer autoClose={1500} />
     </Section>
   );

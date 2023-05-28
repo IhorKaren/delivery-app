@@ -19,7 +19,10 @@ export const cartSlice = createSlice({
       state.array.push(action.payload);
     },
     removeItem: (state, action) => {
-      const index = state.array.findIndex(item => item._id === action.payload);
+      const index = state.array.findIndex(
+        item =>
+          item._id === action.payload.id && item.shop === action.payload.shop
+      );
 
       state.array.splice(index, 1);
     },
