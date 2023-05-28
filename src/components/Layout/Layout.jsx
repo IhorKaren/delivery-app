@@ -28,15 +28,23 @@ const Layout = () => {
             <Typography
               variant="h6"
               component="div"
-              sx={{ fontWeight: 'bold' }}
+              sx={{ fontWeight: '700' }}
             >
               Delivery App
             </Typography>
             <div>
-              <Button component={NavLink} to="/" sx={{ color: 'inherit' }}>
+              <Button
+                component={NavLink}
+                to="/"
+                sx={{ color: 'inherit', fontWeight: '600' }}
+              >
                 Shop
               </Button>
-              <Button component={NavLink} to="/order" sx={{ color: 'inherit' }}>
+              <Button
+                component={NavLink}
+                to="/order"
+                sx={{ color: 'inherit', fontWeight: '600' }}
+              >
                 Shopping cart
               </Button>
             </div>
