@@ -44,12 +44,12 @@ const ShoppingCart = () => {
     }
   };
 
-  const changeItemQuantity = (e, id) => {
+  const changeItemQuantity = (e, id, shop) => {
     if (Number(e.target.value) === 0) {
       return (e.target.value = '1');
     }
 
-    dispatch(changeQuantity({ id, value: e.target.value }));
+    dispatch(changeQuantity({ id, value: e.target.value, shop }));
   };
 
   const removeBtnHandler = id => {

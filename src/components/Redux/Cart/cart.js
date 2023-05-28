@@ -28,7 +28,8 @@ export const cartSlice = createSlice({
     },
     changeQuantity: (state, action) => {
       const index = state.array.findIndex(
-        item => item._id === action.payload.id
+        item =>
+          item._id === action.payload.id && item.shop === action.payload.shop
       );
 
       state.array[index].quantity = action.payload.value;
