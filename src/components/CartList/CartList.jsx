@@ -10,7 +10,7 @@ const CartList = ({ array, onChange, onClick }) => {
     <>
       {array.map(item => {
         return (
-          <StyledCard key={item._id} component="li">
+          <StyledCard key={item._id + item.shop} component="li">
             <CartMediaStyled
               component="img"
               src={`https://s7d1.scene7.com/is/image/mcdonalds/${item.img_path}`}
