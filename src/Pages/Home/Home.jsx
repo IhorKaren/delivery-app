@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addItem, getCart } from 'components/Redux/Cart/cart';
+import { addItem, getCart, removeItem } from 'components/Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
 import GoBack from 'components/GoBack/GoBack';
@@ -77,11 +77,12 @@ const Home = () => {
     }
   };
 
-  const addToCart = item => {
+  const cartToggleHandler = item => {
     const checkItem = cartList.find(el => el._id === item._id);
 
     if (checkItem) {
-      toast.error(`You have already added this item to your cart`);
+      dispatch(removeItem(item._id));
+      toast.info('Item removed from cart');
       return;
     }
 
@@ -95,7 +96,7 @@ const Home = () => {
         <ShopsList shops={shops} onClick={selectedShop} loading={loading} />
         {btnActive && <GoBack onClick={goBackBtnHandler} />}
       </Thumb>
-      <Menu array={burgers} onClick={addToCart} loading={loading} />
+      <Menu array={burgers} onClick={cartToggleHandler} loading={loading} />
       <ToastContainer autoClose={1500} />
     </Section>
   );
