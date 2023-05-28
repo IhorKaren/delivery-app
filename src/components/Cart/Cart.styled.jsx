@@ -31,4 +31,9 @@ const Burgerlist = styled.ul`
   list-style: none;
 `;
 
-export { Thumb, Burgerlist };
+const Message = styled.div`
+  padding-top: 40%;
+  margin: auto;
+`;
+
+export { Thumb, Burgerlist, Message };
