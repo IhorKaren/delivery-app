@@ -27,7 +27,7 @@ const CartList = ({ array, onChange, onClick }) => {
                 id="standard-number"
                 label="Count"
                 type="number"
-                defaultValue="1"
+                defaultValue={item.quantity}
                 onChange={e => onChange(e, item._id)}
                 variant="standard"
                 sx={{ width: '50px', marginBottom: '10px' }}
