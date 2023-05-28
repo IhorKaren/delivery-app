@@ -11,7 +11,7 @@ const BurgerSkeleton = () => {
     <>
       {baseArray.map((_, index) => (
         <NewCard key={index} component="li">
-          <Skeleton variant="rectangular" width={280} height={270} />{' '}
+          <Skeleton variant="rectangular" width={280} height={285} />{' '}
           <CardContent>
             <Typography gutterBottom variant="h5" component="h3">
               <Skeleton variant="text" width={120} />{' '}
