@@ -30,8 +30,9 @@ const CartList = ({ array, onChange, onClick }) => {
                 defaultValue="1"
                 onChange={e => onChange(e, item._id)}
                 variant="standard"
-                sx={{ width: '50px' }}
+                sx={{ width: '50px', marginBottom: '10px' }}
               />
+              <Typography component="p">Shop: {item.shop}</Typography>
             </CardContent>
             <CardActions>
               <StyledMUIBtn

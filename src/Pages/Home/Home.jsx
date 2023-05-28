@@ -13,6 +13,7 @@ import { Section, Thumb } from './Home.styled';
 const Home = () => {
   const [burgers, setBurgers] = useState([]);
   const [shops, setShops] = useState([]);
+  // const [activeShop, seActiveShop] = useState('');
   const [loading, setLoading] = useState(false);
   const [btnActive, setBtnActive] = useState(false);
 
@@ -78,6 +79,11 @@ const Home = () => {
   };
 
   const cartToggleHandler = item => {
+    if (shops.length > 1) {
+      toast.info('Please select a shop');
+      return;
+    }
+
     const checkItem = cartList.find(el => el._id === item._id);
 
     if (checkItem) {
@@ -86,7 +92,7 @@ const Home = () => {
       return;
     }
 
-    dispatch(addItem({ ...item, quantity: 1 }));
+    dispatch(addItem({ ...item, quantity: 1, shop: shops[0].name }));
     toast.success(`Your item has been added to your cart`);
   };
 
