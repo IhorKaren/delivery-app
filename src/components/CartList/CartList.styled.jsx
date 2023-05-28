@@ -15,7 +15,7 @@ const fadeIn = keyframes`
 const StyledCard = styled(Card)`
   position: relative;
   display: flex;
-  height: 240px;
+  height: 260px;
   padding: 0;
 
   flex-basis: calc((100% - 20px) / 2);
@@ -24,7 +24,7 @@ const StyledCard = styled(Card)`
 `;
 
 const CartMediaStyled = styled(CardMedia)`
-  width: 220px;
+  width: 240px;
   padding-bottom: 40px;
 `;
 
