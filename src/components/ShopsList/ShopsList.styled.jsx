@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const fadeIn = keyframes`
   from {
@@ -42,6 +42,12 @@ const StyledLink = styled(Link)`
   :hover {
     background-color: rgba(33, 150, 243, 0.5);
   }
+
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: rgba(33, 150, 243, 0.5);
+    `}
 `;
 
 export { StyledLink, Item, Title, List };

@@ -10,22 +10,17 @@ import { useSelector } from 'react-redux';
 import BurgerSkeleton from 'components/Skeleton/BurgerSkeleton';
 
 const MenuList = ({ array, onClick, loading, activeShop }) => {
-  const skeletonArray = Array.from(array, (_, index) => index);
   const cartList = useSelector(getCart);
-  let shop = null;
-
-  if (activeShop.length === 1) {
-    shop = activeShop[0].name;
-  }
-
+  
   return (
     <>
       {loading
-        ? BurgerSkeleton(skeletonArray)
+        ? BurgerSkeleton()
         : array.map(burger => {
             const checkItem = cartList.some(
-              el => el.name === burger.name && el.shop === shop
+              el => el.name === burger.name && el.shop === activeShop
             );
+
             return (
               <NewCard key={burger._id} component="li">
                 <CardMedia

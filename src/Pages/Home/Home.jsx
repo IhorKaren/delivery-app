@@ -5,7 +5,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { addItem, getCart, removeItem } from 'components/Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
-import GoBack from 'components/GoBack/GoBack';
 import ShopsList from 'components/ShopsList/ShopsList';
 import Menu from 'components/Menu/Menu';
 import { Section, Thumb } from './Home.styled';
@@ -13,11 +12,10 @@ import { Section, Thumb } from './Home.styled';
 const Home = () => {
   const [burgers, setBurgers] = useState([]);
   const [shops, setShops] = useState([]);
+  const [activeShop, setActiveShop] = useState('');
   const [loading, setLoading] = useState(false);
-  const [btnActive, setBtnActive] = useState(false);
 
   const cartList = useSelector(getCart);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -49,6 +47,7 @@ const Home = () => {
 
         if (response) {
           setShops([...response]);
+          setActiveShop(response[0].name);
         }
       } catch (error) {
         console.log(error);
@@ -60,31 +59,11 @@ const Home = () => {
     getShopsList();
   }, []);
 
-  const selectedShop = name => {
-    setShops(prevState => prevState.filter(el => el.name === name));
-    setBtnActive(true);
-  };
-
-  const goBackBtnHandler = async () => {
-    try {
-      const response = await getShops();
-      if (response) {
-        setShops([...response]);
-        setBtnActive(false);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+  const onSelectedShop = name => {
+    setActiveShop(name);
   };
 
   const toggleCartItem = item => {
-    const activeShop = shops[0].name;
-
-    if (shops.length > 1) {
-      toast.info('Please select a shop');
-      return;
-    }
-
     const checkItem = cartList.some(
       el => el._id === item._id && el.shop === activeShop
     );
@@ -102,14 +81,18 @@ const Home = () => {
   return (
     <Section>
       <Thumb>
-        <ShopsList shops={shops} onClick={selectedShop} loading={loading} />
-        {btnActive && <GoBack onClick={goBackBtnHandler} />}
+        <ShopsList
+          shops={shops}
+          activeShop={activeShop}
+          loading={loading}
+          onClick={onSelectedShop}
+        />
       </Thumb>
       <Menu
         array={burgers}
         onClick={toggleCartItem}
         loading={loading}
-        activeShop={shops}
+        activeShop={activeShop}
       />
       <ToastContainer autoClose={1500} />
     </Section>
