@@ -15,12 +15,15 @@ import {
 import { useFormControl } from '@mui/material';
 
 const schema = Yup.object().shape({
-  name: Yup.string().required('Name is required!'),
+  name: Yup.string()
+    .required('Name is required!')
+    .matches(/^[A-Za-z]+$/, 'Name must contain only letters'),
   email: Yup.string().required('Email is required!'),
   phone: Yup.string()
     .required('Number is required!')
     .min(7, 'Number must be at least 7 digits')
-    .max(16, 'Number must not exceed 16 digits'),
+    .max(16, 'Number must not exceed 16 digits')
+    .matches(/^[0-9]+$/, 'Number must contain only numbers'),
   address: Yup.string().required('Address is required!'),
 });
 
