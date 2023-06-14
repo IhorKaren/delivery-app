@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const sendOrder = async orderData => {
   try {
-    await axios.post('https://burger.herokuapp.com/orders', orderData);
+    await axios.post('https://burger-so6y.onrender.com/orders', orderData);
   } catch (error) {}
 };
 

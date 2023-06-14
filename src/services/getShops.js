@@ -3,7 +3,7 @@ import axios from 'axios';
 const getShops = async () => {
   try {
     const response = await axios.get(
-      `https://burger.herokuapp.com/shops`
+      `https://burger-so6y.onrender.com/shops`
     );
     return response.data;
   } catch (error) {}
