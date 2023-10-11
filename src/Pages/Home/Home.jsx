@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addItem, getCart, removeItem } from 'components/Redux/Cart/cart';
+import { addItem, getCart, removeItem } from 'Redux/Cart/cart';
 import getBurgers from 'services/getBurgers';
 import getShops from 'services/getShops';
 import ShopsList from 'components/ShopsList/ShopsList';

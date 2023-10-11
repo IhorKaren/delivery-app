@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getCart } from 'components/Redux/Cart/cart';
+import { getCart } from 'Redux/Cart/cart';
 import { StyledTotalPrice } from './TotalPrice.styled';
 
 const TotalPrice = () => {

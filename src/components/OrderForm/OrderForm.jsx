@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useForm, useController } from 'react-hook-form';
 import { useSelector } from 'react-redux';
-import { getCart } from 'components/Redux/Cart/cart';
+import { getCart } from 'Redux/Cart/cart';
 import TotalPrice from 'components/TotalPrice/TotalPrice';
 import {
   StyledField,

@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { NewCard, StyledMUIBtn } from './MenuList.styled';
-import { getCart } from 'components/Redux/Cart/cart';
+import { getCart } from 'Redux/Cart/cart';
 import { useSelector } from 'react-redux';
 import BurgerSkeleton from 'components/Skeleton/BurgerSkeleton';
 

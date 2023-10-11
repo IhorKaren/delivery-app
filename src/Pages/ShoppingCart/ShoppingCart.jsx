@@ -4,11 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import Map from 'components/Map/Map';
 import Geocode from 'react-geocode';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  getCart,
-  changeQuantity,
-  removeItem,
-} from 'components/Redux/Cart/cart';
+import { getCart, changeQuantity, removeItem } from 'Redux/Cart/cart';
 import sendOrder from 'services/sendOrder';
 import OrderForm from 'components/OrderForm/OrderForm';
 import Cart from 'components/Cart/Cart';
